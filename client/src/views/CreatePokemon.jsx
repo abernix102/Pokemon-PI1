@@ -3,11 +3,15 @@ import {
   ContainerForm,
   ImgContainer,
   Containerform,
-  Content
+  Content,ButtomBack
 } from "../styles/formulario.js";
 import icon2 from "../assets/formp.jpg";
+import iconBack from "../assets/icons8-back-64.png"
 import FormData from "../components/FormData.jsx";
 const CreatePokemon = () => {
+  const handlerClick = () => {
+    window.history.back();
+  }
   return (
     <FormSection>
       <ContainerForm>
@@ -21,6 +25,7 @@ const CreatePokemon = () => {
           </Content>
         </Containerform>
       </ContainerForm>
+      <ButtomBack onClick={handlerClick}><img src={iconBack} alt="icon_back" /></ButtomBack>
     </FormSection>
   );
 };

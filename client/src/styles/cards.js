@@ -1,24 +1,29 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-export const ContainerCards = styled.section`
-  background-color: #41abf3;
-  height: 100%;
-  width: 100%;
-`;
+
 export const ContainerWrapper = styled.div`
+  background-color: #41abf3;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   padding: 100px 20px;
   align-items: center;
-  justify-content: center;
+  min-height: 100vh;
   height: 100%;
 `;
 export const ContainerOptions = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
 `;
 export const ContCards = styled.div`
   display: flex;
   flex-direction: row;
   height: 80%;
+  gap: 25px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;

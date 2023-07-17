@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Validation from "../validations/validations.js";
 import { createPokemon } from "../redux/actions.js";
 import { useSelector, useDispatch } from "react-redux";
-import { Conteinlabel } from "../styles/formulario";
+import { Conteinlabel, ContainerSelect } from "../styles/formulario";
 import { useNavigate } from "react-router-dom";
 import { allType } from "../redux/actions.js";
 function FormData() {
@@ -54,7 +54,7 @@ function FormData() {
           {errors[fieldName].value}
         </p>
       );
-    }
+    } 
     return null;
   };
 
@@ -165,7 +165,8 @@ function FormData() {
         />
       </label>
       {renderError("weight")}
-      <select onChange={handleSelectChange}>
+   <ContainerSelect>
+   <select onChange={handleSelectChange}>
         <option>seleccione un option</option>
         {options1.map(option =>
           <option key={option.name} value={option.name}>
@@ -181,6 +182,7 @@ function FormData() {
           </option>
         )}
       </select>
+   </ContainerSelect>
       <button type="submit" disabled={allErrors}>
         Submit
       </button>

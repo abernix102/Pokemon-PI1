@@ -1,4 +1,4 @@
-import { ContainerCards, PageStyle , ContainerWrapper} from "../styles/cards";
+import { PageStyle , ContainerWrapper} from "../styles/cards";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import arrow from "../assets/arrow.svg";
@@ -42,7 +42,6 @@ const CardsPokemon = () => {
   return (
     <>
     {isLoading ? <Loading/> :
-    <ContainerCards > 
           <ContainerWrapper>
           <Options setCurrentPage={setCurrentPage}/>
             <Cards pokemonsAll={currenItems} />
@@ -61,7 +60,6 @@ const CardsPokemon = () => {
               </button>
             </PageStyle>
           </ContainerWrapper>
-    </ContainerCards>
 }
     </>
   );

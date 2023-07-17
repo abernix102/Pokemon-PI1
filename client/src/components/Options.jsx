@@ -32,7 +32,7 @@ const Options = ({setCurrentPage}) => {
     <ContainerOptions>
       <button onClick={handlerClear}>clear filter</button>
       <select onChange={handlerOption}>
-        <option value="all">all</option>
+        <option>selection</option>
         {options.map(option =>
           <option key={option.name} value={option.name}>
             {option.name}
