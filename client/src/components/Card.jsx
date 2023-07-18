@@ -16,7 +16,7 @@ const Card = ({id, name,type, image}) => {
     const cardColor = getTypeColor(type)
     const cardColors = getTypeColors(type)
     return (
-        <CardsContainer style={{border:"1px solid #fff"}}>
+        <CardsContainer>
           <ContainerImg color={cardColor}>
             <img src={image} alt={name} />
           </ContainerImg>

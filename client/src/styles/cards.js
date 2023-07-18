@@ -2,14 +2,25 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ContainerWrapper = styled.div`
-  background-color: #41abf3;
+  background-color: #3396d9;
   display: flex;
+  position: relative;
   justify-content: space-between;
   flex-direction: column;
   padding: 100px 20px;
   align-items: center;
   min-height: 100vh;
   height: 100%;
+  ::before{
+    content: '';
+    width: 15%;
+    height: 100%;
+    position: absolute;
+    top:-100px;
+    background-color: #03A9F4;
+    rotate: calc(190deg);
+    left: -150px;
+  }
 `;
 export const ContainerOptions = styled.div`
   display: flex;
@@ -33,7 +44,7 @@ export const CardsContainer = styled.div`
   overflow: hidden;
   object-fit: contain;
   display: flex;
-  padding: 20px 0;
+  padding: 20px 5px;
   border-radius: 25px;
   flex-direction: column;
   align-items: center;

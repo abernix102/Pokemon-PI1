@@ -4,15 +4,18 @@ import { Link } from "react-router-dom";
 export const ContainerList = styled.div`
   width: 100%;
   position: fixed;
-  z-index: 100;
+  z-index: 10;
+  background-color: ${props => props.isOnDetail ? "#1e1a1a3b" : ""};
 `;
 export const ContainerNav = styled.nav`
   display: flex;
   padding: 10px 0;
+  
   width: 90%;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
+  
 `;
 export const ButtonContainer = styled(Link)`
   width: 10%;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { SectionDetail, ContentImg, ContainerLeft, ContainerRight } from "../styles/detail"
+import { SectionDetail, ContentImg, ContainerLeft, ContainerRight , ContainerAll} from "../styles/detail"
 import { useParams } from "react-router-dom";
 import axios from "axios"
+import Loading from "../components/Loading";
 
 const Detail = () => {
     const [pokemon, setPokemon] = useState({})
@@ -23,7 +24,8 @@ const Detail = () => {
         <>
             {pokemon.name ? (
                 <SectionDetail>
-                    <ContainerLeft>
+                   <ContainerAll>
+                   <ContainerLeft>
                         <ContentImg><img src={pokemon.image} alt="pokemon" /></ContentImg>
                         <h2>{pokemon.name}</h2>
                         <p>height:{pokemon.height}</p>
@@ -33,9 +35,10 @@ const Detail = () => {
                         <h2>stands</h2>
                         <h2>more info</h2>
                     </ContainerRight>
+                   </ContainerAll>
                 </SectionDetail>
             ) : (
-                <h2>cargando</h2>
+                <Loading/>
             )}
         </>
     );
