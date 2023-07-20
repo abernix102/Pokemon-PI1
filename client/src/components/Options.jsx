@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { ContainerOptions } from "../styles/cards";
 import { allType, filterType, order, pokemons } from "../redux/actions";
+import Search from "./Search";
 import { useEffect } from "react";
 const Options = ({setCurrentPage}) => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const Options = ({setCurrentPage}) => {
         <option value="a">asendente</option>
         <option value="b">desendete</option>
       </select>
+      <Search/>
     </ContainerOptions>
   );
 };

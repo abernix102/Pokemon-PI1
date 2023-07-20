@@ -3,7 +3,8 @@ import { ALLPOKEMONS, ALLTYPE, FILTERTYPES, ORDER } from "./action-types";
 const initialState = {
   pokemons: [],
   pokemonsAll: [], // Agregamos el estado para almacenar todos los pokemones
-  typeAll: []
+  typeAll: [],
+  pokemonReadOnly :[]
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -12,7 +13,8 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         pokemons: payload,
-        pokemonsAll: payload // Guardamos todos los pokemones en el estado pokemonsAll
+        pokemonsAll: payload,
+        pokemonReadOnly: payload.map(e => ({name: e.name, id:e.id}))// Guardamos todos los pokemones en el estado pokemonsAll
       };
     case ALLTYPE:
       return {

@@ -14,13 +14,25 @@ const getPokemonById = async (req, res) => {
   try {
     const { id } = req.params;
     const pokemonsTotal = await dataAll();
-    const pokemon = pokemonsTotal.find(element => element.id == id);
-    if (!pokemon) throw new Error("pokemon not found");
+    let pokemon;
+
+    if (!isNaN(id)) {
+      // Si el parámetro es un número, se considera que es el id
+      pokemon = pokemonsTotal.find((element) => element.id == id);
+    } else {
+      // Si el parámetro es una cadena, se considera que es el name
+      pokemon = pokemonsTotal.find(
+        (element) => element.name.toLowerCase() === id.toLowerCase()
+      );
+    }
+
+    if (!pokemon) throw new Error("Pokemon not found");
     res.status(200).json(pokemon);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 const getPokemonsByQuery = async (req, res) => {
     try{

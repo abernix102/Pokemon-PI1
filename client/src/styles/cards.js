@@ -29,6 +29,22 @@ export const ContainerOptions = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+  button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    &:hover{
+      background-color: #b9b9b9;
+    }
+  }
+
+  select{
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
 `;
 export const ContCards = styled.div`
   display: flex;
