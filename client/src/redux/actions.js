@@ -12,12 +12,17 @@ export const createPokemon = (payload) => async (dispatch) => {
   await axios.post("http://localhost:3001/pokemon/post", payload);
 };
 export const allType = () => async dispatch => {
-  const { data } = await axios.get("http://localhost:3001/pokemon/type");
-  dispatch({
-    type: ALLTYPE,
-    payload:data
-  })
-}
+  try {
+    const { data } = await axios.get("http://localhost:3001/pokemon/type");
+    dispatch({
+      type: ALLTYPE,
+      payload: data
+    });
+  } catch (error) {
+    console.error("Error fetching types:", error);
+    // Aquí puedes agregar acciones adicionales en caso de error, como mostrar un mensaje al usuario, etc.
+  }
+};
 export const filterType = (type) => {
   return {type: FILTERTYPES, payload: type}
 };

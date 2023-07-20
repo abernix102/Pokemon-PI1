@@ -4,13 +4,13 @@ const Cards = ({pokemonsAll}) => {
     return (
         <ContCards>
             {
-                pokemonsAll?.map(({id, name, type, image}) => {
+                pokemonsAll?.map(({id, name, types, image}) => {
                     return(
                     <Card
                     id={id}
                     key={id}
                     name={name}
-                    type={type}
+                    types={types}
                     image={image}
                     />
                     )

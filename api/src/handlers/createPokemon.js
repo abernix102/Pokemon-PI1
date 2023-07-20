@@ -12,7 +12,7 @@ const postPokemont = async (req, res) => {
       speed,
       height,
       weight,
-      type
+      types
     } = req.body;
     const allPokemon = await dataAll();
     const findPokemonName = allPokemon.find(poke => poke.name === name.toLowerCase());
@@ -28,12 +28,12 @@ const postPokemont = async (req, res) => {
       weight
     });
 
-  let tipoDb = await Type.findAll({
+  let tipos = await Type.findAll({
     where: {
-        name: type
+        name: types
     }
   }) 
-    pokemonCreate.addType(tipoDb);
+  pokemonCreate.addType(tipos)
     res.status(200).json("successfully created pokemon");
   } catch (error) {
     res.status(400).json({ error: error.message });

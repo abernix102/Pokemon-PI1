@@ -3,7 +3,7 @@ const { Pokemon, Type } = require("../db");
 
 const dataApi = async () => {
   const { data } = await axios.get(
-    "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
+    "https://pokeapi.co/api/v2/pokemon?limit=5&offset=0"
   );
 
   const urlPromises = data.results.map(e => axios.get(e.url));
@@ -19,7 +19,7 @@ const dataApi = async () => {
     speed: pokemon.data.stats[5].base_stat,
     height: pokemon.data.height,
     weight: pokemon.data.weight,
-    type: pokemon.data.types.map(poke => {
+    types: pokemon.data.types.map(poke => {
       return { name: poke.type.name };
     })
   }));

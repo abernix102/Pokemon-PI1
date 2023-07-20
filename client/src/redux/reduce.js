@@ -21,12 +21,12 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     case FILTERTYPES:
       const filterType = state.pokemonsAll.filter((e) =>
-        e.type?.map((e) => e.name).includes(payload)
-      );
-      return {
-        ...state,
-        pokemons: filterType
-      };
+      e.type?.map((e) => e.name).includes(payload)
+    );
+    return {
+      ...state,
+      pokemons: filterType
+    };
     case ORDER:
       let orderName;
       const desendenteOrder = [...state.pokemons].sort((a, b) => b.name.localeCompare(a.name)); // Creamos una copia del array antes de ordenar

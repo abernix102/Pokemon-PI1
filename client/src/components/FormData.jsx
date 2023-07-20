@@ -14,14 +14,14 @@ function FormData() {
   const [userError, setUserError] = useState(false);
   const [user, setUser] = useState({
     name: "",
-    hp: "",
+    hp: 0,
     image:"",
-    attack: "",
-    defense: "",
-    speed: "",
-    height: "",
-    weight: "",
-    type: []
+    attack: 0,
+    defense:0,
+    speed: 0,
+    height:0,
+    weight: 0,
+    types: []
   });
   const [errors, setErrors] = useState({
     name: { value: "", error: false },
@@ -33,6 +33,12 @@ function FormData() {
     weight: { value: "", error: false },
     type: { value: "", error: false }
   });
+  const handleNumberChange = event => {
+    const { name, value } = event.target;
+    const numericValue = parseInt(value, 10);
+    setUser({ ...user, [name]: numericValue });
+    setErrors({ ...errors, [name]: Validation(name, numericValue) });
+  }; 
   const handlerOnchageString = event => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
@@ -40,13 +46,13 @@ function FormData() {
   };
   const handleSelectChange = event => {
     const { value } = event.target;
-    const selectedOptions = user.type.includes(value)
-      ? user.type.filter(type => type !== value)
-      : [...user.type, value].slice(-2);
+    const selectedOptions = user.types.includes(value)
+      ? user.types.filter(type => type !== value)
+      : [...user.types, value].slice(-2);
 
-    setUser({ ...user, type: selectedOptions });
+    setUser({ ...user, types: selectedOptions });
   };
-
+console.log(user)
   const renderError = fieldName => {
     if (errors[fieldName].error) {
       return (
@@ -61,7 +67,7 @@ function FormData() {
   useEffect(() => {
     const errorUser =
       Object.values(user).some(users => users === "") ||
-      (Array.isArray(user.type) && user.type.length === 0);
+      (Array.isArray(user.types) && user.types.length === 0);
     setUserError(errorUser);
     const hasErrors = Object.values(errors).some(obj => obj.error === true);
     setAllErrors(hasErrors);
@@ -101,7 +107,7 @@ function FormData() {
           id="hp"
           name="hp"
           value={user.hp}
-          onChange={handlerOnchageString}
+          onChange={handleNumberChange}
         />
       </label>
       {renderError("hp")}
@@ -112,7 +118,7 @@ function FormData() {
           id="attack"
           name="attack"
           value={user.attack}
-          onChange={handlerOnchageString}
+          onChange={handleNumberChange}
           max="165"
         />
       </label>
@@ -124,7 +130,7 @@ function FormData() {
           id="defense"
           name="defense"
           value={user.defense}
-          onChange={handlerOnchageString}
+          onChange={handleNumberChange}
           max="230"
         />
       </label>
@@ -137,7 +143,7 @@ function FormData() {
           name="speed"
           value={user.speed}
           max="160"
-          onChange={handlerOnchageString}
+          onChange={handleNumberChange}
         />
       </label>
       {renderError("speed")}
@@ -149,7 +155,7 @@ function FormData() {
           name="height"
           value={user.height}
           max="145"
-          onChange={handlerOnchageString}
+          onChange={handleNumberChange}
         />
       </label>
       {renderError("height")}
@@ -161,7 +167,7 @@ function FormData() {
           name="weight"
           value={user.weight}
           max=" 9500"
-          onChange={handlerOnchageString}
+          onChange={handleNumberChange}
         />
       </label>
       {renderError("weight")}

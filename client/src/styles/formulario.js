@@ -16,7 +16,7 @@ export const ContainerForm = styled.div`
   margin: 0 auto;
   border-radius: 25px;
   overflow: hidden;
-  height: 85%;
+  height: 90%;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
 `;
 
@@ -67,7 +67,8 @@ export const Conteinlabel = styled.form`
     justify-content: space-between;
   }
   input {
-    border-radius: 15px;
+    border-radius: 7px;
+    padding: inherit;
     border: 1px solid;
   }
   button {
@@ -103,7 +104,7 @@ export const Content = styled.div`
 `;
 
 export const ContainerSelect = styled.div`
-  padding: 10px 0;
+  padding: 20px 0;
   display: flex;
   justify-content: space-around;
   select {
