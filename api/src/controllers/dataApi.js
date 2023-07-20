@@ -3,7 +3,7 @@ const { Pokemon, Type } = require("../db");
 
 const dataApi = async () => {
   const { data } = await axios.get(
-    "https://pokeapi.co/api/v2/pokemon?limit=5&offset=0"
+    "https://pokeapi.co/api/v2/pokemon?limit=50&offset=0"
   );
 
   const urlPromises = data.results.map(e => axios.get(e.url));
