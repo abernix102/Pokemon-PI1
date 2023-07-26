@@ -16,14 +16,16 @@ const getPokemonById = async (req, res) => {
     const pokemonsTotal = await dataAll();
     let pokemon;
 
-    if (!isNaN(id)) {
-      // Si el parámetro es un número, se considera que es el id
-      pokemon = pokemonsTotal.find((element) => element.id == id);
+    const isNumber = !isNaN(id);
+    if (isNumber) {
+      pokemon = pokemonsTotal.find(e => e.id == id);
     } else {
-      // Si el parámetro es una cadena, se considera que es el name
       pokemon = pokemonsTotal.find(
-        (element) => element.name.toLowerCase() === id.toLowerCase()
+        e => e.name.toLowerCase() === id.toLowerCase()
       );
+    }
+    if (!pokemon) {
+      pokemon = pokemonsTotal.find(e => e.id.toString() == id.toLowerCase());
     }
 
     if (!pokemon) throw new Error("Pokemon not found");
@@ -33,18 +35,19 @@ const getPokemonById = async (req, res) => {
   }
 };
 
-
 const getPokemonsByQuery = async (req, res) => {
-    try{
-        const {name} = req.query;
-        const pokemonsTotal = await dataAll();
-        const pokemonsFind = pokemonsTotal.find((poke) => poke.name.toLowerCase() === name.toLowerCase())
-        if(!pokemonsFind) throw new Error('pokemon name not found')
-        res.status(200).json(pokemonsFind)
-    }catch(error){
-        res.status(400).json({error:error.message})
-    }
-}
+  try {
+    const { name } = req.query;
+    const pokemonsTotal = await dataAll();
+    const pokemonsFind = pokemonsTotal.find(
+      poke => poke.name.toLowerCase() === name.toLowerCase()
+    );
+    if (!pokemonsFind) throw new Error("pokemon name not found");
+    res.status(200).json(pokemonsFind);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 module.exports = {
   dataPokemons,
   getPokemonById,
