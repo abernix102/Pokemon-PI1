@@ -6,7 +6,10 @@ const Validation = (fieldName, value) => {
         if (value.trim() === '') {
           error = true;
           errorMessage = 'name is required';
-        } else if (!/^[^+{}'.ñ<>áéíóúÁÉÍÓÚñ]*$/.test(value)) {
+        }else if(value.length > 20 ){
+          error = true;
+          errorMessage = 'name mayor a 20 caracteres'
+        }else if (!/^[^+{}'.ñ<>áéíóúÁÉÍÓÚñ]*$/.test(value)) {
           error = true;
           errorMessage = 'name cannot contain certain characters';
         }

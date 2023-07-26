@@ -23,7 +23,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     case FILTERTYPES:
       const filterType = state.pokemonsAll.filter((e) =>
-      e.type?.map((e) => e.name).includes(payload)
+      e.types?.map((e) => e.name).includes(payload)
     );
     return {
       ...state,

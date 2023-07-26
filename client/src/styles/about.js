@@ -39,7 +39,6 @@ export const ContainerFigure = styled.figure`
   width: 25%;
   max-width: 300px;
   flex-shrink: 0;
-
   img {
     width: 100%;
     display: block;
