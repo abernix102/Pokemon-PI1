@@ -7,6 +7,8 @@ import CreatePokemon from "./views/CreatePokemon";
 import NotFound from "./views/NotFound"
 import { useLocation } from "react-router-dom";
 import Detail from "./views/Detail";
+import axios from "axios"
+axios.defaults.baseURL = "https://pokemon-pi1-production.up.railway.app/";
 function App() {
   const location = useLocation();
 
