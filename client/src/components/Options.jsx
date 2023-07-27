@@ -33,7 +33,6 @@ const Options = ({setCurrentPage}) => {
     <ContainerOptions>
       <button onClick={handlerClear}>clear filter</button>
       <select onChange={handlerOption}>
-        <option>selection</option>
         {options.map(option =>
           <option key={option.name} value={option.name}>
             {option.name}
@@ -41,7 +40,6 @@ const Options = ({setCurrentPage}) => {
         )}
       </select>
       <select onChange={handlerOrder}>
-        <option value="select">select</option>
         <option value="a">asendente</option>
         <option value="b">desendete</option>
       </select>

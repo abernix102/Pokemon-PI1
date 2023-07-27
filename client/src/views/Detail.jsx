@@ -21,7 +21,6 @@ const Detail = () => {
 
         return setPokemon({});
     }, [id]);
-    console.log(pokemon.types)
     const { colors, color } = useTypeColors(pokemon.types);
     const TotalScore = () => {
         const total = pokemon.hp + pokemon.attack + pokemon.defense + pokemon.speed;
