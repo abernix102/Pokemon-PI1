@@ -2,18 +2,18 @@ import { ALLPOKEMONS, ALLTYPE, FILTERTYPES, ORDER } from "./action-types";
 import axios from "axios";
 
 export const pokemons = () => async dispatch => {
-  const { data } = await axios.get("http://localhost:3001/pokemons");
+  const { data } = await axios.get("https://pokemon-pi1-production.up.railway.app/pokemons");
   dispatch({
     type: ALLPOKEMONS,
     payload: data
   });
 };
 export const createPokemon = (payload) => async (dispatch) => {
-  await axios.post("http://localhost:3001/pokemon/post", payload);
+  await axios.post("https://pokemon-pi1-production.up.railway.app/pokemon/post", payload);
 };
 export const allType = () => async dispatch => {
   try {
-    const { data } = await axios.get("http://localhost:3001/pokemon/type");
+    const { data } = await axios.get("https://pokemon-pi1-production.up.railway.app/pokemon/type");
     dispatch({
       type: ALLTYPE,
       payload: data
